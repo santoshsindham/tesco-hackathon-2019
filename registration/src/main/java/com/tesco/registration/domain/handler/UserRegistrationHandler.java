@@ -6,6 +6,7 @@ import com.tesco.registration.infrastructure.externalApiCalls.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -27,5 +28,10 @@ public class UserRegistrationHandler {
     public User getUser(String userId) {
 
         return userRepository.getUser(userId).get();
+    }
+
+    public List<User> getAvailableUsers(){
+
+        return userRepository.getAvailableUsers();
     }
 }

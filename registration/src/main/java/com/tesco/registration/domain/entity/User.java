@@ -18,6 +18,8 @@ public class User {
 
     @Id
     private String id;
+    private String firstName;
+    private String lastName;
     private VerificationDetails verificationDetails;
     private PhoneDetails phoneDetails;
     private Address addressDetails;

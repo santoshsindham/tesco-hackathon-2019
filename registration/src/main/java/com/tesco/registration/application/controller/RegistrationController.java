@@ -6,6 +6,8 @@ import com.tesco.registration.domain.handler.UserRegistrationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(QueryEndpoints.USER)
 public class RegistrationController {
@@ -17,6 +19,12 @@ public class RegistrationController {
     public User getUser(@PathVariable String userId) {
 
         return userRegistrationHandler.getUser(userId);
+    }
+
+    @GetMapping(QueryEndpoints.AVAILABLE_USERS)
+    public List<User> getAvailableUsers() {
+
+        return userRegistrationHandler.getAvailableUsers();
     }
 
     @PostMapping(QueryEndpoints.USER_REGISTRATION_URL)

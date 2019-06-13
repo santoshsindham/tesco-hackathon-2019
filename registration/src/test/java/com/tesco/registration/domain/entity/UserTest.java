@@ -17,6 +17,8 @@ class UserTest {
 
 
         User user = User.builder().id(UUID.randomUUID().toString())
+                .firstName("Santosh")
+                .lastName("Sindham")
                 .verificationDetails(User.VerificationDetails.builder().idNumber("8978629040").idType("Unique Tax Reference Number").licenceNumber("8978629326").isVerified(false).build())
                 .phoneDetails(User.PhoneDetails.builder().mobileNumber("9538045556").model("Poco F1 Xiaomi").imeiNumber("123456789").isGpsEnabled(true).build())
                 .addressDetails(User.Address.builder().city("Hyderabad").country("India").doorNumber("B2-817").postalCode("560066").state("Karnataka").streetName("Nallurahalli").build())
