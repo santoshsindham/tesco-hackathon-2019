@@ -1,6 +1,5 @@
 package com.tesco.registration.domain.handler;
 
-import com.tesco.registration.domain.constants.DomainConstants;
 import com.tesco.registration.domain.entity.User;
 import com.tesco.registration.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,12 @@ public class UserRegistrationHandler {
 
     public User save(User user) {
 
-        user.setId(DomainConstants.ENTITY_USER_PREFIX + UUID.randomUUID().toString());
+        user.setId(UUID.randomUUID().toString());
         return userRepository.save(user);
+    }
+
+    public User getUser(String userId) {
+
+        return userRepository.getUser(userId).get();
     }
 }

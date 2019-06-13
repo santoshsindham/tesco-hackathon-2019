@@ -4,19 +4,22 @@ import com.tesco.registration.application.constants.QueryEndpoints;
 import com.tesco.registration.domain.entity.User;
 import com.tesco.registration.domain.handler.UserRegistrationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(QueryEndpoints.USER_REGISTRATION_URL)
+@RequestMapping(QueryEndpoints.USER)
 public class RegistrationController {
 
     @Autowired
     private UserRegistrationHandler userRegistrationHandler;
 
-    @PostMapping
+    @GetMapping(value = "/{userId}")
+    public User getUser(@PathVariable String userId) {
+
+        return userRegistrationHandler.getUser(userId);
+    }
+
+    @PostMapping(QueryEndpoints.USER_REGISTRATION_URL)
     public User registerUser(@RequestBody User user) {
 
         return userRegistrationHandler.save(user);
