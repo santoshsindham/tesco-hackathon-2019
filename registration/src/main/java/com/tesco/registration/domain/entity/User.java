@@ -36,6 +36,7 @@ public class User {
 
         private String idType;
         private String idNumber;
+        private String licenceNumber;
         private Boolean isVerified;
     }
 

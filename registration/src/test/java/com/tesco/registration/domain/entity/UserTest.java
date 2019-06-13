@@ -17,7 +17,7 @@ class UserTest {
 
 
         User user = User.builder().id(UUID.randomUUID().toString())
-                .verificationDetails(User.VerificationDetails.builder().idNumber("123456").idType("Driving Licence").isVerified(false).build())
+                .verificationDetails(User.VerificationDetails.builder().idNumber("8978629040").idType("Unique Tax Reference Number").licenceNumber("8978629326").isVerified(false).build())
                 .phoneDetails(User.PhoneDetails.builder().mobileNumber("9538045556").model("Poco F1 Xiaomi").imeiNumber("123456789").isGpsEnabled(true).build())
                 .addressDetails(User.Address.builder().city("Hyderabad").country("India").doorNumber("B2-817").postalCode("560066").state("Karnataka").streetName("Nallurahalli").build())
                 .vehicleDetails(User.Vehicle.builder().model("Sedan").registrationNumber("AP09 CP 8585").type("Hyundai Verna").bootSpaceDetails(User.BootSpaceDetails.builder().lengthInMtrs(Long.valueOf(20)).breadthInMtrs(Long.valueOf(15)).heightInMtrs(Long.valueOf(10)).build()).build())
