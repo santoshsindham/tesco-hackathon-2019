@@ -13,14 +13,14 @@ public class UserRegistrationHandler {
 
     @Autowired
     private UserRepository userRepository;
-//
-//    @Autowired
-//    private ValidationService validationService;
+
+    @Autowired
+    private ValidationService validationService;
 
     public User save(User user) {
 
         user.setId(UUID.randomUUID().toString());
-//        user.getVerificationDetails().setIsVerified(validationService.validateUserDetails(user).getIsValidUser());
+        user.getVerificationDetails().setIsVerified(validationService.validateUserDetails(user).getIsValidUser());
         return userRepository.save(user);
     }
 
