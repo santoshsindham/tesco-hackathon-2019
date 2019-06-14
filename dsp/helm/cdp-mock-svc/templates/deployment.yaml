@@ -1,0 +1,48 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  namespace: {{ .Values.app.namespace }}
+  labels:
+    app: {{ .Values.app.name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      name: {{ .Values.app.name }}
+      labels:
+        app: {{ .Values.app.name }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Values.app.name }}
+        image: "{{ .Values.app.image.repo }}:{{ .Values.app.image.tag }}"
+        imagePullPolicy: {{ .Values.app.pullPolicy }}
+        ports:
+        - name: {{ .Values.app.name }}
+          containerPort: {{ .Values.app.containerPort }}
+        args:
+        - {{ .Values.app.dockerrun.args }}
+        resources:
+          requests:
+            cpu: {{ .Values.app.resources.requests.cpu }}
+            memory: {{ .Values.app.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.app.resources.limits.cpu }}
+            memory: {{ .Values.app.resources.limits.memory }}
+        env:
+        {{- $secret := printf "%s-%s" .Values.app.name "secret" -}}
+          {{- range .Values.app.secrets }}
+              - name: {{ . }}
+                valueFrom:
+                    secretKeyRef:
+                      name: {{ $secret }}
+                      key: {{ . }}
+              {{- end }}

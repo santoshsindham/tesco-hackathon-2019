@@ -1,0 +1,18 @@
+{
+  "id": "38f7df1c-254e-4b27-9394-847fcc18194c",
+  "request": {
+    "method": "GET",
+    "urlPath": "/ratings",
+    "queryParameters": {
+      "id": {
+        "matches": "7c570eae-99ff-4cac-bbbf-05128f876200"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "{\n\"id\":\"c71d6767-dbe6-4693-bcbb-495bf3519052\",\n\"rating\":3.5\n}"
+  },
+  "uuid": "38f7df1c-254e-4b27-9394-847fcc18194c",
+  "priority": 1
+}

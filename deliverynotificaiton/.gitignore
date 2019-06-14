@@ -1,0 +1,45 @@
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+*.class
+target/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Included the below to exclude for gradle
+.gradle
+/build/
+/out/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+**/.DS_Store
+/bin/
+/.settings
+/.eclipse-pmd
+/.pmd
+gradle.properties
+.clover/
+#application*.properties
+.classpath
+*-local.properties

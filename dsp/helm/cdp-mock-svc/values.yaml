@@ -1,0 +1,36 @@
+app:
+  name: cdp-mock-svc
+  namespace: cdp-mock-svc
+  description: Cdp Mock Service
+  version: 0.0.1
+  image:
+    repo: promotionacr.azurecr.io/promotion/cdp-mock-svc
+    tag: latest
+  replicas: 1
+  protocol: TCP
+  port: 80
+  containerPort: 8085
+  imagePullPolicy: Always
+  restartPolicy: Never
+  serviceType: LoadBalancer
+  env: dev
+  devDNSName: cdpmock.westeurope.cloudapp.azure.com
+  devLoadBalancerIP: 23.97.182.122
+  devResourceGroup: pricepromotions-nonprod-westeurope-rg
+  resources:
+    requests:
+      cpu: 2
+      memory: 1Gi
+    limits:
+      cpu: 4
+      memory: 2Gi
+#  dockerrun:
+#    args: --spring.profiles.active=dev
+#  secrets:
+#  - couchbase_price_bucket_name
+#  - couchbase_price_bucket_password
+#  - identity_clientid
+#  - identity_username
+#  - identity_password
+#  - security_userconfig
+#  - security_consumerconfigs

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.app.name }}
+  namespace: {{ .Values.app.namespace }}
+  labels:
+    app: {{ .Values.app.name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+#  annotations:
+#    service.beta.kubernetes.io/azure-load-balancer-resource-group: {{ .Values.app.devResourceGroup }}
+spec:
+  loadBalancerIP: {{ .Values.app.devLoadBalancerIP }}
+  type: {{ .Values.app.serviceType }}
+  selector:
+    app: {{ .Values.app.name }}
+  ports:
+  - port: {{ .Values.app.port }}
+    targetPort: {{ .Values.app.containerPort }}
+    protocol: {{ .Values.app.protocol }}

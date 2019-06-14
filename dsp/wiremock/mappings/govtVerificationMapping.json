@@ -1,0 +1,23 @@
+{
+    "priority": 1,
+    "request": {
+        "method": "GET",
+        "urlPath": "/uk/verifyUser",
+        "queryParameters": {
+            "utr": {
+                "matches": "UK.*"
+            },
+            "licenseNo": {
+                "matches": ".*"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "govtVerificationResponse.json",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "transformers": ["response-template"]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "id": "272eb086-c70e-4ce4-851c-12a5c67e012b",
+    "request": {
+        "url": "/deliveryOptions",
+        "method": "POST",
+        "bodyPatterns": [
+            {
+                "equalToJson": "{\n  \"basket\":[\n    {\n      \"gtin\": \"05000462001305\",\n      \"qty\": \"1\",\n      \"perishable\": false\n    },\n    {\n      \"gtin\": \"05010024101572\",\n      \"qty\": \"2\",\n      \"perishable\": true\n    },\n    {\n      \"gtin\": \"05000354114182\",\n      \"qty\": \"3\",\n      \"perishable\": false\n    }\n    ]\n}"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "body": "{\n  \"basket\":[\n    {\n      \"gtin\": \"05000462001305\",\n      \"qty\": \"1\",\n      \"perishable\": false,\n      \"deliveryOptions\": \"cdp\"\n    },\n    {\n      \"gtin\": \"05010024101572\",\n      \"qty\": \"2\",\n      \"perishable\": true,\n      \"deliveryOptions\": \"standard\"\n    },\n    {\n      \"gtin\": \"05000354114182\",\n      \"qty\": \"3\",\n      \"perishable\": false,\n     \"deliveryOptions\": \"cdp\"\n    }\n    ]\n}"
+    },
+    "uuid": "272eb086-c70e-4ce4-851c-12a5c67e012b",
+    "priority": 1
+}
